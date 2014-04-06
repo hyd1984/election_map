@@ -1,0 +1,35 @@
+<html>
+<head><title>hello world</title>
+<script src="http://maps.google.com/maps?file=api&v=2&key=ABQIAAAAsYV7UusYC8W-CUCDLpFQYRREFBcOGxpqCCUdK6ZnJW0Tb_Kj_BRWDfzZYc6lwJiQloNiuOKFThoUBQ"
+type="text/javascript"></script>
+</head>
+<body>
+<!--Google Map 顯示的位置，可自由決定大小-->
+<div id="mymap" style="width: 1080px; height: 720px"></div>
+
+<!--以下為控制Google Maps的JavaScript-->
+<script type="text/javascript">
+
+//<![CDATA[
+var map = new GMap(document.getElementById("mymap"));
+
+//設定要顯示的控制項
+map.addControl(new GSmallMapControl());
+map.addControl(new GMapTypeControl());
+
+//決定你 Google 地圖的中心點位置和縮放大小
+map.setCenter(new GLatLng(22.996733, 120.212465), 16);
+
+//標記在 Google 地圖上的經緯度
+var point = new GLatLng(22.996733, 120.212465);
+var marker = new GMarker(point);
+map.addOverlay(marker);
+
+//在地圖上放置標點說明
+var html = "台南火車站";
+map.openInfoWindowHtml (map.getCenter(), html);
+
+//]]>
+</script>
+</body>
+</html>
